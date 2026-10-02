@@ -1,0 +1,77 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPhX7is2gX2j5Eo3TXR4UqI",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nandikas1006-art/biotech-data-science-journey/blob/main/learning%20logs%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9Zk4Z8abXiqS",
+        "outputId": "b57626f2-99c8-4620-d43b-8d99158d3860"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting biopython\n",
+            "  Downloading biopython-1.88-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)\n",
+            "Requirement already satisfied: numpy in /usr/local/lib/python3.13/dist-packages (from biopython) (2.1.3)\n",
+            "Downloading biopython-1.88-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m3.2/3.2 MB\u001b[0m \u001b[31m19.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hInstalling collected packages: biopython\n",
+            "Successfully installed biopython-1.88\n",
+            "Original DNA Sequence: ATGGCCATTGTAATGGGCCGCTGAAAGGGTCCCGGG\n",
+            "Transcribed mRNA:      AUGGCCAUUGUAAUGGGCCGCUGAAAGGGUCCCGGG\n",
+            "Translated Protein:    MAIVMGR*KGPG\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install biopython\n",
+        "\n",
+        "# 2. Import the sequence tool\n",
+        "from Bio.Seq import Seq\n",
+        "\n",
+        "# 3. Create a mock DNA strand (coding strand)\n",
+        "my_dna = Seq(\"ATGGCCATTGTAATGGGCCGCTGAAAGGGTCCCGGG\")\n",
+        "print(f\"Original DNA Sequence: {my_dna}\")\n",
+        "\n",
+        "# 4. Transcribe it to mRNA\n",
+        "my_mrna = my_dna.transcribe()\n",
+        "print(f\"Transcribed mRNA:      {my_mrna}\")\n",
+        "\n",
+        "# 5. Translate it to a protein sequence\n",
+        "my_protein = my_mrna.translate()\n",
+        "print(f\"Translated Protein:    {my_protein}\")"
+      ]
+    }
+  ]
+}
